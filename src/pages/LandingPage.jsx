@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 import {
   MessageCircle,
   Shield,
@@ -23,6 +22,8 @@ import {
   Menu,
   X,
   Play,
+  Trash2, // Changez Trash en Trash2
+  HelpCircle,
 } from "lucide-react";
 
 export const LandingPage = () => {
@@ -79,53 +80,62 @@ export const LandingPage = () => {
       name: "Sophie M.",
       role: "Étudiante",
       content:
-        "AskMe m'a permis de poser des questions sur des sujets sensibles sans avoir peur du jugement. C'est libérateur !",
+        "Grâce à mon lien AskMe, j'ai pu recevoir des conseils précieux et des encouragements anonymes. Les gens sont plus honnêtes quand ils peuvent s'exprimer librement !",
       rating: 5,
       avatar:
         "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=200",
+      verified: true,
+      messagesReceived: "150+",
     },
     {
       name: "Marc L.",
-      role: "Professionnel",
+      role: "Créateur de contenu",
       content:
-        "Interface intuitive et sécurité au top. Je recommande vivement cette plateforme pour les discussions confidentielles.",
+        "AskMe m'a permis de créer une vraie connexion avec mon audience. Les messages anonymes que je reçois m'aident à mieux comprendre ce que pensent vraiment mes followers.",
       rating: 5,
       avatar:
         "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=200",
+      verified: true,
+      messagesReceived: "500+",
     },
     {
       name: "Julie K.",
-      role: "Créatrice",
+      role: "Influenceuse",
       content:
-        "La communauté est bienveillante et l'anonymat me permet d'être vraiment authentique dans mes échanges.",
+        "L'anonymat total d'AskMe libère la parole. Je reçois des confessions touchantes et des questions sincères que mes followers n'oseraient jamais poser publiquement.",
       rating: 5,
       avatar:
         "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?auto=compress&cs=tinysrgb&w=200",
+      verified: true,
+      messagesReceived: "1000+",
     },
   ];
 
   const howItWorks = [
     {
       step: 1,
-      title: "Créez votre profil anonyme",
-      description: "Aucune information personnelle requise",
+      title: "Générez votre lien unique",
+      description:
+        "Créez instantanément votre lien personnalisé AskMe en quelques secondes. Aucune inscription complexe requise.",
       icon: Users,
       image:
         "https://images.pexels.com/photos/4050302/pexels-photo-4050302.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       step: 2,
-      title: "Posez vos questions",
-      description: "Partagez vos préoccupations en toute sécurité",
-      icon: MessageCircle,
+      title: "Partagez votre lien",
+      description:
+        "Diffusez votre lien sur vos réseaux sociaux, dans votre bio ou envoyez-le à vos contacts pour recevoir des messages anonymes.",
+      icon: Globe,
       image:
         "https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
     {
       step: 3,
-      title: "Recevez des réponses",
-      description: "La communauté vous aide avec bienveillance",
-      icon: CheckCircle,
+      title: "Recevez des messages anonymes",
+      description:
+        "Les personnes peuvent vous envoyer des messages, questions ou confessions en toute anonymité via votre lien.",
+      icon: MessageCircle,
       image:
         "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=600",
     },
@@ -133,39 +143,40 @@ export const LandingPage = () => {
 
   const faqs = [
     {
-      question: "Mes données sont-elles vraiment sécurisées ?",
+      question: "Comment puis-je recevoir des messages anonymes ?",
       answer:
-        "Oui, nous utilisons un chiffrement de bout en bout et ne stockons aucune information personnelle. Votre anonymat est garanti à 100%.",
+        "Il vous suffit de générer votre lien personnalisé sur AskMe et de le partager. Les personnes pourront vous envoyer des messages complètement anonymes via ce lien.",
     },
     {
-      question: "Comment fonctionne le système d'anonymat ?",
+      question: "Puis-je savoir qui m'a envoyé un message ?",
       answer:
-        "Chaque utilisateur reçoit un identifiant unique généré aléatoirement. Aucun lien avec votre identité réelle n'est conservé.",
+        "Non, l'anonymat est total. Vous recevrez les messages sans aucune information sur l'identité de l'expéditeur. C'est le principe fondamental d'AskMe.",
     },
     {
-      question: "Y a-t-il des modérateurs sur la plateforme ?",
+      question: "Comment partager mon lien AskMe ?",
       answer:
-        "Oui, notre équipe de modération veille au respect de nos règles communautaires pour maintenir un environnement sain et respectueux.",
+        "Une fois votre lien généré, vous pouvez le partager sur vos réseaux sociaux, dans votre bio, ou l'envoyer directement à vos contacts. Le lien reste actif en permanence.",
     },
     {
-      question: "L'application est-elle gratuite ?",
+      question:
+        "Y a-t-il une limite au nombre de messages que je peux recevoir ?",
       answer:
-        "AskMe propose un accès gratuit avec toutes les fonctionnalités essentielles. Des options premium sont disponibles pour plus de fonctionnalités.",
+        "Avec le plan gratuit, vous pouvez recevoir des messages illimités. Les plans premium offrent des fonctionnalités supplémentaires comme la priorisation et les statistiques.",
     },
   ];
-
   const pricingPlans = [
     {
       name: "Gratuit",
       price: "0€",
       period: "/mois",
       features: [
-        "Messages illimités",
-        "Anonymat complet",
-        "Support communautaire",
-        "Interface mobile",
+        "Lien personnalisé unique",
+        "Messages anonymes illimités",
+        "Interface intuitive",
+        "Notifications en temps réel",
       ],
       popular: false,
+      badge: "Pour commencer",
     },
     {
       name: "Premium",
@@ -173,12 +184,13 @@ export const LandingPage = () => {
       period: "/mois",
       features: [
         "Tout du plan gratuit",
-        "Messages prioritaires",
-        "Thèmes personnalisés",
-        "Support 24/7",
-        "Statistiques avancées",
+        "Personnalisation du profil",
+        "Statistiques détaillées",
+        "Support prioritaire",
+        "Thèmes exclusifs",
       ],
       popular: true,
+      badge: "Le plus populaire",
     },
     {
       name: "Pro",
@@ -186,12 +198,13 @@ export const LandingPage = () => {
       period: "/mois",
       features: [
         "Tout du plan Premium",
-        "Groupes privés",
-        "API access",
-        "Analytics détaillées",
-        "Manager dédié",
+        "Liens multiples",
+        "Analytics avancées",
+        "API complète",
+        "Support dédié 24/7",
       ],
       popular: false,
+      badge: "Pour les créateurs",
     },
   ];
 
@@ -236,102 +249,103 @@ export const LandingPage = () => {
 
       {/* Navigation */}
 
-<nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-  scrollY > 50 ? "bg-slate-900/90 backdrop-blur-md" : "bg-transparent"
-}`}>
-  <div className="max-w-7xl mx-auto flex justify-between items-center p-6">
-    
-    {/* Logo Section */}
-    <div className="flex items-center space-x-2">
-      <MessageCircle className="w-8 h-8 text-purple-400" />
-      <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-        AskMe
-      </span>
-    </div>
-
-    {/* Desktop Navigation */}
-    <div className="hidden md:flex items-center space-x-8">
-      <div className="flex items-center space-x-6">
-        <a 
-          href="#features" 
-          className="text-gray-300 hover:text-purple-300 transition-colors duration-200"
-        >
-          Fonctionnalités
-        </a>
-        <a 
-          href="#about" 
-          className="text-gray-300 hover:text-purple-300 transition-colors duration-200"
-        >
-          À propos
-        </a>
-        <a 
-          href="#contact" 
-          className="text-gray-300 hover:text-purple-300 transition-colors duration-200"
-        >
-          Contact
-        </a>
-      </div>
-      
-      {/* CTA Button */}
-      <Link 
-        to="/home"
-        className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl font-semibold text-white shadow-lg hover:shadow-purple-500/25 transform hover:scale-105 transition-all duration-300"
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrollY > 50 ? "bg-slate-900/90 backdrop-blur-md" : "bg-transparent"
+        }`}
       >
-        Créer un compte
-      </Link>
-    </div>
+        <div className="max-w-7xl mx-auto flex justify-between items-center p-6">
+          {/* Logo Section */}
+          <div className="flex items-center space-x-2">
+            <MessageCircle className="w-8 h-8 text-purple-400" />
+            <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              AskMe
+            </span>
+          </div>
 
-    {/* Mobile Menu Button */}
-    <button
-      className="md:hidden text-white hover:text-purple-300 transition-colors duration-200"
-      onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-    >
-      {mobileMenuOpen ? (
-        <X className="w-6 h-6" />
-      ) : (
-        <Menu className="w-6 h-6" />
-      )}
-    </button>
-  </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-8">
+            <div className="flex items-center space-x-6">
+              <a
+                href="#features"
+                className="text-gray-300 hover:text-purple-300 transition-colors duration-200"
+              >
+                Fonctionnalités
+              </a>
+              <a
+                href="#about"
+                className="text-gray-300 hover:text-purple-300 transition-colors duration-200"
+              >
+                À propos
+              </a>
+              <a
+                href="#contact"
+                className="text-gray-300 hover:text-purple-300 transition-colors duration-200"
+              >
+                Contact
+              </a>
+            </div>
 
-  {/* Mobile Menu */}
-  {mobileMenuOpen && (
-    <div className="md:hidden bg-slate-900/95 backdrop-blur-md border-t border-white/10">
-      <div className="px-6 py-4 space-y-4">
-        <a
-          href="#features"
-          className="block text-gray-300 hover:text-purple-300 transition-colors duration-200 py-2"
-          onClick={() => setMobileMenuOpen(false)}
-        >
-          Fonctionnalités
-        </a>
-        <a
-          href="#about"
-          className="block text-gray-300 hover:text-purple-300 transition-colors duration-200 py-2"
-          onClick={() => setMobileMenuOpen(false)}
-        >
-          À propos
-        </a>
-        <a
-          href="#contact"
-          className="block text-gray-300 hover:text-purple-300 transition-colors duration-200 py-2"
-          onClick={() => setMobileMenuOpen(false)}
-        >
-          Contact
-        </a>
-        <div className="pt-4 border-t border-white/10">
-          <Link
-            to="/home"
-            className="block w-full text-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl font-semibold text-white shadow-lg transition-all duration-300"
-            onClick={() => setMobileMenuOpen(false)}
+            {/* CTA Button */}
+            <Link
+              to="/home"
+              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl font-semibold text-white shadow-lg hover:shadow-purple-500/25 transform hover:scale-105 transition-all duration-300"
+            >
+              Créer un compte
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-white hover:text-purple-300 transition-colors duration-200"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            Créer un compte
-          </Link>
+            {mobileMenuOpen ? (
+              <X className="w-6 h-6" />
+            ) : (
+              <Menu className="w-6 h-6" />
+            )}
+          </button>
         </div>
-      </div>
-    </div>
-  )}
-</nav>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-slate-900/95 backdrop-blur-md border-t border-white/10">
+            <div className="px-6 py-4 space-y-4">
+              <a
+                href="#features"
+                className="block text-gray-300 hover:text-purple-300 transition-colors duration-200 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Fonctionnalités
+              </a>
+              <a
+                href="#about"
+                className="block text-gray-300 hover:text-purple-300 transition-colors duration-200 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                À propos
+              </a>
+              <a
+                href="#contact"
+                className="block text-gray-300 hover:text-purple-300 transition-colors duration-200 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </a>
+              <div className="pt-4 border-t border-white/10">
+                <Link
+                  to="/home"
+                  className="block w-full text-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 rounded-xl font-semibold text-white shadow-lg transition-all duration-300"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Créer un compte
+                </Link>
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
 
       {/* Hero Section */}
       <section
@@ -356,16 +370,16 @@ export const LandingPage = () => {
 
             {/* Main Title */}
             <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-200 bg-clip-text text-transparent leading-tight">
-              Posez vos questions
+              Communiquez
               <br />
-              <span className="text-purple-300">sans vous révéler</span>
+              <span className="text-purple-300">sans laisser de traces</span>
             </h1>
 
             {/* Subtitle */}
             <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-              AskMe vous permet de poser des questions sensibles, partager vos
-              pensées et recevoir des conseils en toute confidentialité. Votre
-              anonymat est notre priorité.
+              Partagez vos pensées les plus intimes, envoyez des messages
+              sensibles ou exprimez-vous librement sans révéler votre identité.
+              Votre vie privée est sacrée.
             </p>
           </header>
 
@@ -373,12 +387,12 @@ export const LandingPage = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
             <button className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 font-semibold text-lg">
               <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              <span>Commencer maintenant</span>
+              <span>Envoyer un message</span>
             </button>
 
             <button className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl hover:bg-white/20 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 font-semibold text-lg">
               <Play className="w-5 h-5" />
-              <span>Voir la démo</span>
+              <span>Comment ça marche</span>
             </button>
           </div>
         </div>
@@ -394,8 +408,8 @@ export const LandingPage = () => {
                 Anonymat Total
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                Aucune inscription requise. Vos messages sont complètement
-                anonymes et ne peuvent être retracés vers vous.
+                Aucune inscription, aucun nom, aucune trace. Vos messages sont
+                entièrement anonymes et impossibles à retracer.
               </p>
             </div>
 
@@ -404,11 +418,11 @@ export const LandingPage = () => {
                 <Shield className="w-6 h-6 text-pink-300" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">
-                Sécurisé
+                Sécurité Maximale
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                Chiffrement de bout en bout et aucune donnée personnelle
-                stockée. Votre confidentialité est garantie.
+                Chiffrement militaire, serveurs sécurisés et destruction
+                automatique des messages. Votre confidentialité avant tout.
               </p>
             </div>
 
@@ -417,11 +431,11 @@ export const LandingPage = () => {
                 <Send className="w-6 h-6 text-blue-300" />
               </div>
               <h3 className="text-xl font-semibold text-white mb-3">
-                Instantané
+                Liberté d'Expression
               </h3>
               <p className="text-gray-300 leading-relaxed">
-                Posez vos questions et recevez des réponses rapidement.
-                Disponible 24h/24 et 7j/7.
+                Partagez vos secrets, confessions ou pensées profondes sans
+                jugement ni conséquences. Soyez authentique.
               </p>
             </div>
           </div>
@@ -430,20 +444,20 @@ export const LandingPage = () => {
         {/* Statistics Section */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto mb-12">
           <div className="text-center transform hover:scale-105 transition-transform duration-300">
-            <div className="text-4xl font-bold text-purple-300 mb-2">15K+</div>
-            <div className="text-gray-400 text-sm">Messages envoyés</div>
+            <div className="text-4xl font-bold text-purple-300 mb-2">50K+</div>
+            <div className="text-gray-400 text-sm">Messages anonymes</div>
           </div>
           <div className="text-center transform hover:scale-105 transition-transform duration-300">
-            <div className="text-4xl font-bold text-pink-300 mb-2">8K+</div>
-            <div className="text-gray-400 text-sm">Utilisateurs actifs</div>
+            <div className="text-4xl font-bold text-pink-300 mb-2">12K+</div>
+            <div className="text-gray-400 text-sm">Utilisateurs protégés</div>
           </div>
           <div className="text-center transform hover:scale-105 transition-transform duration-300">
-            <div className="text-4xl font-bold text-blue-300 mb-2">100%</div>
+            <div className="text-4xl font-bold text-blue-300 mb-2">0</div>
+            <div className="text-gray-400 text-sm">Données stockées</div>
+          </div>
+          <div className="text-center transform hover:scale-105 transition-transform duration-300">
+            <div className="text-4xl font-bold text-green-300 mb-2">∞</div>
             <div className="text-gray-400 text-sm">Anonymat garanti</div>
-          </div>
-          <div className="text-center transform hover:scale-105 transition-transform duration-300">
-            <div className="text-4xl font-bold text-green-300 mb-2">24/7</div>
-            <div className="text-gray-400 text-sm">Disponibilité</div>
           </div>
         </div>
 
@@ -451,7 +465,8 @@ export const LandingPage = () => {
         <div className="flex items-center justify-center space-x-2 text-sm text-gray-400 mb-12">
           <Shield className="w-4 h-4 text-green-400" />
           <span>
-            Chiffrement de bout en bout • Aucune donnée stockée • Anonymat total
+            Messages éphémères • Chiffrement bout-à-bout • Aucune surveillance •
+            Liberté totale
           </span>
         </div>
 
@@ -464,53 +479,120 @@ export const LandingPage = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
-              Pourquoi choisir AskMe ?
+      <section id="features" className="py-20 px-6 relative overflow-hidden">
+        {/* Background Decorations */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-purple-600 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-600 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-800/30 to-pink-800/30 backdrop-blur-sm border border-purple-500/30 rounded-full px-6 py-2 mb-6">
+              <Shield className="w-4 h-4 text-purple-300" />
+              <span className="text-sm text-purple-200 font-medium">
+                Protection Maximale
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-300 bg-clip-text text-transparent leading-tight">
+              Votre intimité,
+              <br />
+              <span className="text-purple-300">notre obsession</span>
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Découvrez les fonctionnalités qui font d'AskMe la plateforme de
-              messagerie anonyme la plus sûre et conviviale.
+
+            <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Découvrez comment nous révolutionnons la communication anonyme
+              avec des fonctionnalités pensées pour votre liberté d'expression
+              et votre sécurité.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
                 <div
                   key={index}
-                  className={`group p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl transform transition-all duration-500 hover:scale-105 hover:bg-white/10 ${
+                  className={`group relative p-8 bg-gradient-to-br from-white/5 via-white/[0.02] to-transparent backdrop-blur-lg border border-white/10 rounded-3xl transform transition-all duration-700 hover:scale-105 hover:border-purple-400/30 cursor-pointer ${
                     currentFeature === index
-                      ? "ring-2 ring-purple-400 bg-white/10 scale-105"
-                      : ""
+                      ? "ring-2 ring-purple-400/50 bg-gradient-to-br from-purple-900/20 via-pink-900/10 to-transparent scale-105 shadow-2xl shadow-purple-500/20"
+                      : "hover:shadow-xl hover:shadow-purple-500/10"
                   }`}
+                  onMouseEnter={() =>
+                    setCurrentFeature && setCurrentFeature(index)
+                  }
                 >
-                  <div className="relative mb-6 overflow-hidden rounded-xl">
+                  {/* Gradient Orb */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                  {/* Feature Image */}
+                  <div className="relative mb-8 overflow-hidden rounded-2xl bg-gradient-to-br from-gray-800 to-gray-900">
                     <img
                       src={feature.image}
                       alt={feature.title}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-52 object-cover group-hover:scale-110 transition-transform duration-700 opacity-80"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+
+                    {/* Icon Overlay */}
+                    <div className="absolute bottom-4 left-4">
+                      <div className="p-3 rounded-2xl bg-gradient-to-r from-purple-600/80 to-pink-600/80 backdrop-blur-sm border border-white/20 transform group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+                    </div>
                   </div>
 
-                  <div className="flex flex-col items-center text-center space-y-4">
-                    <div
-                      className={`p-3 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 transition-transform duration-300 group-hover:scale-110`}
-                    >
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-2xl font-semibold">{feature.title}</h3>
-                    <p className="text-gray-300 leading-relaxed">
+                  {/* Content */}
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-bold text-white group-hover:text-purple-200 transition-colors duration-300">
+                      {feature.title}
+                    </h3>
+
+                    <p className="text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">
                       {feature.description}
                     </p>
+
+                    {/* Learn More Link */}
+                    <div className="flex items-center space-x-2 text-purple-400 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
+                      <span className="text-sm font-medium">
+                        En savoir plus
+                      </span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+                    </div>
                   </div>
+
+                  {/* Hover Border Effect */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-purple-500/20 via-transparent to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                 </div>
               );
             })}
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="mt-20 text-center">
+            <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+              <div className="flex items-center space-x-2">
+                <Lock className="w-5 h-5 text-green-400" />
+                <span className="text-sm text-gray-300">
+                  Chiffrement AES-256
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Shield className="w-5 h-5 text-blue-400" />
+                <span className="text-sm text-gray-300">
+                  Serveurs sécurisés
+                </span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Eye className="w-5 h-5 text-purple-400" />
+                <span className="text-sm text-gray-300">Aucun tracking</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Trash2 className="w-5 h-5 text-pink-400" /> 
+                <span className="text-sm text-gray-300">Auto-destruction</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -547,20 +629,33 @@ export const LandingPage = () => {
         </div>
       </section>
 
-      {/* How it Works Section */}
-      <section id="how-it-works" className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+      {/* How it Works Section - Design amélioré */}
+      <section id="how-it-works" className="py-20 px-6 relative">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 -left-20 w-40 h-40 bg-purple-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-1/4 -right-20 w-40 h-40 bg-pink-500/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-800/30 to-pink-800/30 backdrop-blur-sm border border-purple-500/20 rounded-full px-6 py-3 mb-8">
+              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-purple-200">
+                3 étapes simples
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
               Comment ça marche ?
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Commencez à utiliser AskMe en trois étapes simples. C'est rapide,
-              facile et totalement sécurisé.
+            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Créez votre lien personnalisé et commencez à recevoir des messages
+              anonymes en quelques minutes
             </p>
           </div>
 
-          <div className="space-y-16">
+          <div className="space-y-20">
             {howItWorks.map((step, index) => {
               const Icon = step.icon;
               const isEven = index % 2 === 0;
@@ -570,42 +665,80 @@ export const LandingPage = () => {
                   key={index}
                   className={`flex flex-col ${
                     isEven ? "lg:flex-row" : "lg:flex-row-reverse"
-                  } items-center gap-12`}
+                  } items-center gap-16`}
                 >
-                  <div className="lg:w-1/2 space-y-6">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center text-xl font-bold">
-                        {step.step}
+                  <div className="lg:w-1/2 space-y-8">
+                    <div className="flex items-center space-x-6">
+                      <div className="relative">
+                        <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl flex items-center justify-center text-2xl font-bold shadow-lg shadow-purple-500/25">
+                          {step.step}
+                        </div>
+                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
+                          <div className="w-2 h-2 bg-white rounded-full"></div>
+                        </div>
                       </div>
-                      <div className="p-3 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full">
-                        <Icon className="w-6 h-6 text-purple-300" />
+                      <div className="p-4 bg-gradient-to-r from-purple-500/10 to-pink-500/10 backdrop-blur-sm border border-purple-500/20 rounded-2xl">
+                        <Icon className="w-8 h-8 text-purple-300" />
                       </div>
                     </div>
 
-                    <h3 className="text-3xl font-bold">{step.title}</h3>
-                    <p className="text-xl text-gray-300 leading-relaxed">
-                      {step.description}
-                    </p>
+                    <div className="space-y-6">
+                      <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                        {step.title}
+                      </h3>
+                      <p className="text-xl text-gray-300 leading-relaxed">
+                        {step.description}
+                      </p>
 
-                    <button className="inline-flex items-center space-x-2 text-purple-300 hover:text-purple-200 transition-colors group">
-                      <span>En savoir plus</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                      <div className="flex items-center space-x-4">
+                        <button className="inline-flex items-center space-x-3 bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-sm border border-purple-500/30 px-6 py-3 rounded-xl text-purple-300 hover:text-purple-200 hover:border-purple-400/50 transition-all duration-300 group">
+                          <span className="font-medium">Découvrir plus</span>
+                          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                        </button>
+
+                        {index < howItWorks.length - 1 && (
+                          <div className="hidden lg:flex items-center space-x-2 text-sm text-gray-500">
+                            <div className="w-8 h-0.5 bg-gradient-to-r from-purple-500/50 to-transparent"></div>
+                            <span>Étape suivante</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
                   </div>
 
                   <div className="lg:w-1/2">
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
-                      <img
-                        src={step.image}
-                        alt={step.title}
-                        className="w-full h-80 object-cover"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-purple-900/30 to-transparent"></div>
+                    <div className="relative group">
+                      <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-3xl transform rotate-1 group-hover:rotate-2 transition-transform duration-500"></div>
+                      <div className="relative rounded-3xl overflow-hidden shadow-2xl transform hover:scale-105 transition-all duration-500 border border-white/10">
+                        <img
+                          src={step.image}
+                          alt={step.title}
+                          className="w-full h-80 md:h-96 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-purple-900/40 via-transparent to-transparent"></div>
+
+                        {/* Floating badge */}
+                        <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full text-sm font-semibold">
+                          Étape {step.step}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               );
             })}
+          </div>
+
+          {/* Progress indicator */}
+          <div className="flex justify-center mt-16 space-x-4">
+            {howItWorks.map((_, index) => (
+              <div key={index} className="flex flex-col items-center space-y-2">
+                <div className="w-3 h-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"></div>
+                {index < howItWorks.length - 1 && (
+                  <div className="w-0.5 h-12 bg-gradient-to-b from-purple-500/50 to-transparent"></div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -666,110 +799,239 @@ export const LandingPage = () => {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section id="pricing" className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">
+      {/* Pricing Section - Design amélioré */}
+      <section id="pricing" className="py-20 px-6 relative">
+        {/* Background effects */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative">
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-800/30 to-blue-800/30 backdrop-blur-sm border border-green-500/20 rounded-full px-6 py-3 mb-8">
+              <Star className="w-4 h-4 text-green-400" />
+              <span className="text-sm font-medium text-green-200">
+                Plans flexibles
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-purple-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
               Choisissez votre plan
             </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Commencez gratuitement et évoluez selon vos besoins. Tous les
-              plans incluent un anonymat total.
+            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+              Commencez gratuitement et débloquez plus de fonctionnalités selon
+              vos besoins.
+              <br className="hidden md:block" />
+              <span className="text-purple-300 font-medium">
+                Anonymat total garanti sur tous les plans
+              </span>
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {pricingPlans.map((plan, index) => (
               <div
                 key={index}
-                className={`relative p-8 rounded-2xl border transition-all duration-300 transform hover:scale-105 ${
-                  plan.popular
-                    ? "bg-gradient-to-br from-purple-600/20 to-pink-600/20 border-purple-400 ring-2 ring-purple-400"
-                    : "bg-white/5 border-white/10 hover:bg-white/10"
+                className={`relative group ${
+                  plan.popular ? "lg:-mt-4 lg:mb-4" : ""
                 }`}
               >
+                {/* Popular plan glow effect */}
                 {plan.popular && (
-                  <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1 rounded-full text-sm font-semibold">
-                      Le plus populaire
-                    </span>
-                  </div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur opacity-20 group-hover:opacity-30 transition duration-1000"></div>
                 )}
 
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                  <div className="flex items-baseline justify-center">
-                    <span className="text-5xl font-bold">{plan.price}</span>
-                    <span className="text-gray-400 ml-2">{plan.period}</span>
-                  </div>
-                </div>
-
-                <ul className="space-y-4 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center">
-                      <CheckCircle className="w-5 h-5 text-green-400 mr-3 flex-shrink-0" />
-                      <span className="text-gray-300">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                <button
-                  className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
+                <div
+                  className={`relative p-8 rounded-3xl border backdrop-blur-sm transition-all duration-500 transform hover:scale-105 ${
                     plan.popular
-                      ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-lg hover:shadow-purple-500/25"
-                      : "bg-white/10 text-white hover:bg-white/20"
+                      ? "bg-gradient-to-br from-purple-900/30 to-pink-900/30 border-purple-400/50 shadow-2xl shadow-purple-500/10"
+                      : "bg-white/5 border-white/10 hover:bg-white/10 hover:border-white/20"
                   }`}
                 >
-                  Commencer maintenant
-                </button>
+                  {/* Badge */}
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span
+                      className={`px-4 py-2 rounded-full text-sm font-bold shadow-lg ${
+                        plan.popular
+                          ? "bg-gradient-to-r from-purple-500 to-pink-500 text-white"
+                          : "bg-slate-800 text-gray-300 border border-slate-600"
+                      }`}
+                    >
+                      {plan.badge}
+                    </span>
+                  </div>
+
+                  {/* Header */}
+                  <div className="text-center mb-8 pt-4">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white">
+                      {plan.name}
+                    </h3>
+                    <div className="flex items-baseline justify-center mb-2">
+                      <span
+                        className={`text-5xl md:text-6xl font-bold ${
+                          plan.popular
+                            ? "bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent"
+                            : "text-white"
+                        }`}
+                      >
+                        {plan.price}
+                      </span>
+                      <span className="text-gray-400 ml-2 text-lg">
+                        {plan.period}
+                      </span>
+                    </div>
+
+                    {plan.name === "Gratuit" && (
+                      <p className="text-green-400 text-sm font-medium">
+                        Essai sans engagement
+                      </p>
+                    )}
+                  </div>
+
+                  {/* Features */}
+                  <ul className="space-y-4 mb-8">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li
+                        key={featureIndex}
+                        className="flex items-start space-x-3"
+                      >
+                        <div
+                          className={`p-1 rounded-full ${
+                            plan.popular
+                              ? "bg-purple-500/20"
+                              : "bg-green-500/20"
+                          }`}
+                        >
+                          <CheckCircle
+                            className={`w-4 h-4 ${
+                              plan.popular
+                                ? "text-purple-400"
+                                : "text-green-400"
+                            }`}
+                          />
+                        </div>
+                        <span className="text-gray-300 leading-relaxed">
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTA Button */}
+                  <button
+                    className={`w-full py-4 px-6 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 ${
+                      plan.popular
+                        ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:shadow-2xl hover:shadow-purple-500/30"
+                        : "bg-white/10 text-white hover:bg-white/20 border border-white/20 hover:border-white/30"
+                    }`}
+                  >
+                    {plan.name === "Gratuit"
+                      ? "Commencer gratuitement"
+                      : "Choisir ce plan"}
+                  </button>
+
+                  {/* Additional info */}
+                  <div className="mt-6 text-center">
+                    <p className="text-xs text-gray-500">
+                      {plan.name === "Gratuit"
+                        ? "Aucune carte bancaire requise"
+                        : "Annulation à tout moment"}
+                    </p>
+                  </div>
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* Bottom CTA */}
+          <div className="text-center mt-16">
+            <div className="inline-flex items-center space-x-2 text-sm text-gray-400 mb-4">
+              <Shield className="w-4 h-4 text-green-400" />
+              <span>Garantie satisfait ou remboursé 30 jours</span>
+            </div>
+            <p className="text-gray-500 text-sm">
+              Toutes les fonctionnalités incluent un anonymat complet et une
+              sécurité maximale
+            </p>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 px-6 bg-gradient-to-r from-purple-900/20 to-pink-900/20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Questions fréquentes
+      <section className="py-20 px-6 bg-gradient-to-r from-purple-900/20 to-pink-900/20 relative overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            }}
+          ></div>
+        </div>
+
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="text-center mb-20">
+            {/* Badge */}
+            <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-800/40 to-pink-800/40 backdrop-blur-sm border border-purple-500/30 rounded-full px-6 py-3 mb-8">
+              <HelpCircle className="w-5 h-5 text-purple-300" />
+              <span className="text-sm text-purple-200 font-medium">
+                Vos Questions, Nos Réponses
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-300 bg-clip-text text-transparent leading-tight">
+              Tout savoir sur
+              <br />
+              <span className="text-purple-300">l'anonymat total</span>
             </h2>
-            <p className="text-xl text-gray-300">
-              Trouvez les réponses aux questions les plus courantes sur AskMe.
+
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Découvrez comment nous protégeons votre identité et garantissons
+              une communication 100% anonyme et sécurisée.
             </p>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-6">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden"
+                className="group bg-white/5 backdrop-blur-lg border border-white/10 rounded-3xl overflow-hidden hover:border-purple-400/30 transition-all duration-500 hover:bg-white/10"
               >
                 <button
-                  className="w-full px-8 py-6 text-left flex justify-between items-center hover:bg-white/5 transition-colors"
+                  className="w-full px-8 py-8 text-left flex justify-between items-start gap-4 hover:bg-white/5 transition-colors duration-300 group-hover:bg-transparent"
                   onClick={() =>
                     setExpandedFaq(expandedFaq === index ? null : index)
                   }
                 >
-                  <span className="text-xl font-semibold">{faq.question}</span>
+                  <div className="flex items-start space-x-4 flex-1">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold text-sm mt-1">
+                      {index + 1}
+                    </div>
+                    <span className="text-xl font-semibold text-white group-hover:text-purple-200 transition-colors duration-300 leading-relaxed">
+                      {faq.question}
+                    </span>
+                  </div>
                   <ChevronDown
-                    className={`w-6 h-6 transition-transform duration-200 ${
-                      expandedFaq === index ? "rotate-180" : ""
+                    className={`w-6 h-6 text-purple-300 transition-all duration-300 flex-shrink-0 mt-2 ${
+                      expandedFaq === index
+                        ? "rotate-180 text-pink-300"
+                        : "group-hover:text-white"
                     }`}
                   />
                 </button>
 
                 <div
-                  className={`overflow-hidden transition-all duration-300 ${
-                    expandedFaq === index ? "max-h-96 pb-6" : "max-h-0"
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    expandedFaq === index ? "max-h-96 pb-8" : "max-h-0"
                   }`}
                 >
-                  <div className="px-8">
-                    <p className="text-gray-300 leading-relaxed">
-                      {faq.answer}
-                    </p>
+                  <div className="px-8 ml-12">
+                    <div className="p-6 bg-gradient-to-br from-purple-900/20 to-pink-900/20 rounded-2xl border border-purple-500/20">
+                      <p className="text-gray-300 leading-relaxed text-lg">
+                        {faq.answer}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -779,28 +1041,97 @@ export const LandingPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 backdrop-blur-sm border border-purple-500/30 rounded-3xl p-12">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Prêt à commencer ?
-            </h2>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              Rejoignez des milliers d'utilisateurs qui font confiance à AskMe
-              pour leurs conversations confidentielles.
-            </p>
+      <section className="py-20 px-6 relative overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-3xl"></div>
+          <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-pink-600/10 rounded-full blur-3xl"></div>
+        </div>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="group px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl shadow-2xl hover:shadow-purple-500/25 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 font-semibold text-lg">
-                <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                <span>Inscription gratuite</span>
+        <div className="max-w-6xl mx-auto text-center relative z-10">
+          <div className="bg-gradient-to-br from-purple-600/20 via-purple-800/15 to-pink-600/20 backdrop-blur-xl border border-purple-500/30 rounded-4xl p-12 md:p-16 shadow-2xl shadow-purple-500/10">
+            {/* Header */}
+            <div className="mb-12">
+              <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-green-800/40 to-emerald-800/40 backdrop-blur-sm border border-green-500/30 rounded-full px-6 py-3 mb-8">
+                <CheckCircle className="w-5 h-5 text-green-300" />
+                <span className="text-sm text-green-200 font-medium">
+                  Prêt en 30 secondes
+                </span>
+              </div>
+
+              <h2 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-pink-300 bg-clip-text text-transparent leading-tight">
+                Commencez à communiquer
+                <br />
+                <span className="text-purple-300">en toute liberté</span>
+              </h2>
+
+              <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                Rejoignez des milliers d'utilisateurs qui font confiance à notre
+                plateforme pour leurs conversations les plus sensibles et
+                personnelles.
+              </p>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-12">
+              <button className="group px-10 py-5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl shadow-2xl hover:shadow-purple-500/30 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3 font-semibold text-lg border border-purple-400/20">
+                <Send className="w-6 h-6 group-hover:translate-x-1 transition-transform duration-200" />
+                <span>Envoyer mon premier message</span>
               </button>
 
-              <button className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl hover:bg-white/20 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 font-semibold text-lg">
-                <Eye className="w-5 h-5" />
-                <span>Explorer d'abord</span>
+              <button className="px-10 py-5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-3xl hover:bg-white/20 hover:border-white/30 transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-3 font-semibold text-lg">
+                <Eye className="w-6 h-6" />
+                <span>Découvrir la démo</span>
               </button>
             </div>
+
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+              <div className="flex flex-col items-center space-y-2 p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <Lock className="w-8 h-8 text-purple-300" />
+                <span className="text-sm text-gray-300 font-medium">
+                  Chiffrement AES-256
+                </span>
+              </div>
+              <div className="flex flex-col items-center space-y-2 p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <Shield className="w-8 h-8 text-blue-300" />
+                <span className="text-sm text-gray-300 font-medium">
+                  Serveurs sécurisés
+                </span>
+              </div>
+              <div className="flex flex-col items-center space-y-2 p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <EyeOff className="w-8 h-8 text-green-300" />
+                <span className="text-sm text-gray-300 font-medium">
+                  Aucun tracking
+                </span>
+              </div>
+              <div className="flex flex-col items-center space-y-2 p-4 bg-white/5 rounded-2xl border border-white/10 hover:bg-white/10 transition-colors duration-300">
+                <Trash2 className="w-8 h-8 text-pink-300" />
+                <span className="text-sm text-gray-300 font-medium">
+                  Auto-destruction
+                </span>
+              </div>
+            </div>
+
+            {/* Security Note */}
+            <div className="flex items-center justify-center space-x-2 text-sm text-gray-400">
+              <Shield className="w-4 h-4 text-green-400" />
+              <span>
+                Aucune inscription requise • Messages éphémères • Anonymat
+                garanti à vie
+              </span>
+            </div>
+          </div>
+
+          {/* Additional CTA */}
+          <div className="mt-12 text-center">
+            <p className="text-gray-400 text-sm mb-4">
+              Vous avez encore des doutes sur la sécurité ?
+            </p>
+            <button className="text-purple-400 hover:text-purple-300 font-medium text-sm flex items-center justify-center space-x-2 mx-auto group">
+              <span>Consulter notre politique de confidentialité</span>
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" />
+            </button>
           </div>
         </div>
       </section>
